@@ -15,8 +15,24 @@ import FirebaseCore
 import FirebaseAuth
 import FirebaseFirestore
 import CryptoKit
+import FBSDKLoginKit
+import FacebookLogin
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, LoginButtonDelegate {
+    
+    func loginButton(_ loginButton: FBLoginButton!, didCompleteWith result: LoginManagerLoginResult!, error: Error!) {
+      if let error = error {
+        print(error.localizedDescription)
+        return
+      }
+        print(result)
+        performSegue(withIdentifier: "toHome", sender: nil)
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginKit.FBLoginButton) {
+        print("Log out")
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +42,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         // Set password field to secure text entry
         password.isSecureTextEntry = true
+        
+        // Facebook Signin
+        let loginButton = FBLoginButton()
+        loginButton.permissions = ["public_profile", "email"]
+        loginButton.center = view.center
+        loginButton.delegate = self
+        view.addSubview(loginButton)
     }
     
     // MARK: - Actions

@@ -6,6 +6,10 @@ import FirebaseCore
 import GoogleSignIn
 import FirebaseAuth
 
+// Created by David
+// Facebook Signin
+import FacebookCore
+
 //Created by David
 // These Imports are used for Firebase - Firestore Database
 import FirebaseFirestore
@@ -36,6 +40,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication,
                      open url: URL,
                      options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        
+      // Facebook Sign-in
+        ApplicationDelegate.shared.application(
+            app,
+            open: url,
+            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
+        )
+        
+      //Google Sign-in
       return GIDSignIn.sharedInstance.handle(url)
     }
     func setupGoogleSignIn() {
@@ -92,6 +106,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Created by David
         // This code is used to configure Google Firebase
         FirebaseApp.configure()
+        
+        // Created by David
+        // Facebook Sign-in
+        ApplicationDelegate.shared.application(
+            application,
+            didFinishLaunchingWithOptions: launchOptions
+        )
         
         return true
     }
