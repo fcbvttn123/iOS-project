@@ -1,4 +1,5 @@
 import UIKit
+import SQLite3
 
 // Created by David
 // These Imports are used for Firebase - Authentication
@@ -17,6 +18,12 @@ import FirebaseFirestore
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    //For Sqlite Database
+    var window: UIWindow?
+    var databaseName : String? = "group.db"
+    var databasePath : String?
+    var people : [Data] = []
+
     // Created by David
     // Currently Sign-in User Information
     // Will be changed after successful sign-in
@@ -41,17 +48,144 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      open url: URL,
                      options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         
-      // Facebook Sign-in
-        ApplicationDelegate.shared.application(
+        let documentPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDir = documentPaths[0]
+        databasePath = documentsDir.appending("/" + databaseName!)
+        
+        // Facebook Sign-in
+        if ApplicationDelegate.shared.application(
             app,
             open: url,
             sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
             annotation: options[UIApplication.OpenURLOptionsKey.annotation]
-        )
+        ) {
+            return true
+        }
         
-      //Google Sign-in
-      return GIDSignIn.sharedInstance.handle(url)
+        // Google Sign-in
+        if GIDSignIn.sharedInstance.handle(url) {
+            return true
+        }
+        
+        // Handle database operations
+        checkAndCreateDatabase()
+        readDataFromDatabase()
+        
+        // Return true if the URL was handled by either Facebook or Google sign-in
+        return false
     }
+
+    
+    
+    func checkAndCreateDatabase()
+    {
+        var success = false
+        let fileManager = FileManager.default
+        
+        success = fileManager.fileExists(atPath: databasePath!)
+    
+        if success
+        {
+            return
+        }
+    
+        let databasePathFromApp = Bundle.main.resourcePath?.appending("/" + databaseName!)
+        
+        
+            try? fileManager.copyItem(atPath: databasePathFromApp!, toPath: databasePath!)
+       
+        return;
+    }
+    
+    
+    func readDataFromDatabase()
+    {
+    people.removeAll()
+    
+    
+        var db: OpaquePointer? = nil
+        
+        if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
+            print("Successfully opened connection to database at \(self.databasePath)")
+            
+            var queryStatement: OpaquePointer? = nil
+            var queryStatementString : String = "select * from data"
+            
+            if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
+                
+                while( sqlite3_step(queryStatement) == SQLITE_ROW ) {
+            
+                    let id: Int = Int(sqlite3_column_int(queryStatement, 0))
+                    let cuser = sqlite3_column_text(queryStatement, 1)
+                    let cpass = sqlite3_column_text(queryStatement, 2)
+                    
+                    let uname = String(cString: cuser!)
+                    let pass = String(cString: cpass!)
+           
+                    let data : MyData = MyData.init()
+                    data.initWithData(theRow: id, theName: uname, thePass: pass)
+                   // people.append(data)
+                    
+                    print("Query Result:")
+                    print("\(id) | \(uname)")
+                    
+                }
+                sqlite3_finalize(queryStatement)
+            } else {
+                print("SELECT statement could not be prepared")
+            }
+            
+        
+            sqlite3_close(db);
+
+        } else {
+            print("Unable to open database.")
+        }
+    
+    }
+    
+    func insertIntoDatabase(person : MyData) -> Bool
+    {
+        var db: OpaquePointer? = nil
+        var returnCode : Bool = true
+        
+        if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
+            print("Successfully opened connection to database at \(self.databasePath)")
+            
+            var insertStatement: OpaquePointer? = nil
+            var insertStatementString : String = "insert into data values(NULL, ?, ?)"
+            print("step1 done")
+            
+            if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
+               
+                let nameStr = person.Username! as NSString
+                let passStr = person.Password! as NSString
+                print("step3 done")
+                sqlite3_bind_text(insertStatement, 1, nameStr.utf8String, -1, nil)
+                sqlite3_bind_text(insertStatement, 2, passStr.utf8String, -1, nil)
+                
+                if sqlite3_step(insertStatement) == SQLITE_DONE {
+                    let rowID = sqlite3_last_insert_rowid(db)
+                    print("Successfully inserted row. \(rowID)")
+                } else {
+                    print("Could not insert row.")
+                    returnCode = false
+                }
+                sqlite3_finalize(insertStatement)
+            } else {
+                print("INSERT statement could not be prepared.")
+                returnCode = false
+            }
+     
+            sqlite3_close(db);
+            
+        } else {
+            print("Unable to open database.")
+            returnCode = false
+        }
+        return returnCode
+    }
+    
     func setupGoogleSignIn() {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         let config = GIDConfiguration(clientID: clientID)

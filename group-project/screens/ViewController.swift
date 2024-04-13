@@ -17,8 +17,13 @@ import FirebaseFirestore
 import CryptoKit
 import FBSDKLoginKit
 import FacebookLogin
+import AVFoundation
 
 class ViewController: UIViewController, UITextFieldDelegate, LoginButtonDelegate {
+    
+    
+    
+
     
     func loginButton(_ loginButton: FBLoginButton!, didCompleteWith result: LoginManagerLoginResult!, error: Error!) {
       if let error = error {

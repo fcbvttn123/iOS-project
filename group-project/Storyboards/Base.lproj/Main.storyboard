@@ -1088,6 +1088,13 @@
                                 <color key="textColor" red="0.4196078479" green="0.39215683940000001" blue="0.47058826679999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="fill" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="luj-Ix-vhN">
+                                <rect key="frame" x="144" y="781" width="140" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="viewDidChangeWithSender:" destination="bCw-GM-oSg" eventType="valueChanged" id="V02-pk-ysa"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Jkc-kj-zD5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1095,6 +1102,7 @@
                     <navigationItem key="navigationItem" id="ecm-jZ-sYx"/>
                     <connections>
                         <outlet property="addHomeCampusButton" destination="Jgb-Hc-2xe" id="igH-rc-yCu"/>
+                        <outlet property="volSlider" destination="luj-Ix-vhN" id="eZo-Se-4AW"/>
                         <segue destination="s3e-eH-f1F" kind="presentation" identifier="toMaps" modalPresentationStyle="fullScreen" id="soj-L8-N1y"/>
                         <segue destination="Dvq-4G-lCI" kind="presentation" identifier="toBookings" modalPresentationStyle="fullScreen" id="4y2-CS-mHL"/>
                     </connections>
@@ -1102,7 +1110,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jG-Qt-ebo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="ZBk-xJ-sEs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="337" y="694"/>
+            <point key="canvasLocation" x="336.64122137404581" y="693.66197183098598"/>
         </scene>
         <!--Web Screen-->
         <scene sceneID="gZw-Ex-nap">
@@ -1206,6 +1214,8 @@
                     </view>
                     <connections>
                         <outlet property="password" destination="ev7-5v-NF3" id="bk9-f2-UfF"/>
+                        <outlet property="tbName" destination="69h-rd-s9h" id="bHX-J8-lBo"/>
+                        <outlet property="tbPass" destination="ev7-5v-NF3" id="2Rz-cT-aAo"/>
                         <outlet property="username" destination="69h-rd-s9h" id="WVZ-ad-Pa7"/>
                     </connections>
                 </viewController>
@@ -1286,6 +1296,7 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="addPersonWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q7G-oN-dLs"/>
                                     <action selector="signIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XO9-XV-qMa"/>
                                 </connections>
                             </button>
@@ -1460,7 +1471,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Aph-Xo-pSV"/>
-        <segue reference="aD1-4N-enc"/>
+        <segue reference="4y2-CS-mHL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="PalPicBg.png" width="464" height="464"/>

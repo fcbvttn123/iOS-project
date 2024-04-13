@@ -18,6 +18,32 @@ import FirebaseFirestore
 class SignUpScreen: UIViewController, UITextFieldDelegate {
     
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    @IBOutlet var tbName : UITextField!
+    @IBOutlet var tbPass : UITextField!
+    
+    @IBAction func addPerson(sender : Any)
+    {
+        let person : MyData = MyData.init()
+        person.initWithData(theRow: 0, theName: tbName.text!, thePass: tbPass.text!)
+            
+        let returnCode : Bool = AppDelegate.shared.insertIntoDatabase(person: person)
+        
+        var returnMSG : String = "Person Added"
+        
+        if returnCode == false
+        {
+            returnMSG = "Person Add Failed"
+        }
+        
+        let alertController = UIAlertController(title: "SQLite Add", message: returnMSG, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

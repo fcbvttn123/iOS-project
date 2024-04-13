@@ -22,6 +22,10 @@
 		CE3FE4192BC87AAD00A0E81B /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = CE3FE4182BC87AAD00A0E81B /* FacebookCore */; };
 		CE3FE41B2BC87AAD00A0E81B /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = CE3FE41A2BC87AAD00A0E81B /* FacebookLogin */; };
 		CE3FE41D2BC87AAD00A0E81B /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = CE3FE41C2BC87AAD00A0E81B /* FacebookShare */; };
+		CE49B8E92BC9E88A0081936D /* song1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE49B8E82BC9E88A0081936D /* song1.mp3 */; };
+		CE4B3FE82BC9D3F600D3D38B /* group.db in Resources */ = {isa = PBXBuildFile; fileRef = CE4B3FE72BC9D3F600D3D38B /* group.db */; };
+		CED2BF2F2BC9517D000895EC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CED2BF2E2BC95172000895EC /* libsqlite3.0.tbd */; };
+		CED2BF312BC9533B000895EC /* MyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2BF302BC9533B000895EC /* MyData.swift */; };
 		CED5F8F22BA5CB8500A3D627 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CED5F8F12BA5CB8500A3D627 /* FirebaseFirestore */; };
 		D610B68F2BBF82EF007649B3 /* MapScreenCampus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D610B68E2BBF82EF007649B3 /* MapScreenCampus.swift */; };
 		D62B36B92BBDF6D20042D656 /* AddPlayScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62B36B82BBDF6D20042D656 /* AddPlayScreen.swift */; };
@@ -58,6 +62,10 @@
 		CE155B1A2BB9E0CD00E45A2A /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		CE155B1C2BB9E0F800E45A2A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CE155B1E2BB9E0FF00E45A2A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		CE49B8E82BC9E88A0081936D /* song1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = song1.mp3; sourceTree = "<group>"; };
+		CE4B3FE72BC9D3F600D3D38B /* group.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = group.db; sourceTree = "<group>"; };
+		CED2BF2E2BC95172000895EC /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		CED2BF302BC9533B000895EC /* MyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyData.swift; sourceTree = "<group>"; };
 		D610B68E2BBF82EF007649B3 /* MapScreenCampus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenCampus.swift; sourceTree = "<group>"; };
 		D62B36B82BBDF6D20042D656 /* AddPlayScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayScreen.swift; sourceTree = "<group>"; };
 		D62B36BC2BBDF8930042D656 /* PickPlayScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPlayScreen.swift; sourceTree = "<group>"; };
@@ -90,6 +98,7 @@
 				CE3FE41D2BC87AAD00A0E81B /* FacebookShare in Frameworks */,
 				CE1198592BA2925000FD8B96 /* GoogleSignIn in Frameworks */,
 				CE155B1F2BB9E10000E45A2A /* MapKit.framework in Frameworks */,
+				CED2BF2F2BC9517D000895EC /* libsqlite3.0.tbd in Frameworks */,
 				CE11985E2BA2983200FD8B96 /* FirebaseAuth in Frameworks */,
 				CE3FE41B2BC87AAD00A0E81B /* FacebookLogin in Frameworks */,
 				CED5F8F22BA5CB8500A3D627 /* FirebaseFirestore in Frameworks */,
@@ -137,6 +146,8 @@
 		CE1198302BA232FF00FD8B96 /* group-project */ = {
 			isa = PBXGroup;
 			children = (
+				CE49B8E72BC9E8700081936D /* Audio */,
+				CE4B3FE72BC9D3F600D3D38B /* group.db */,
 				D610B6872BBF28EE007649B3 /* Storyboards */,
 				D610B6862BBF28CB007649B3 /* Delegates */,
 				D6569C8A2BBD3482000B688F /* Classes */,
@@ -152,10 +163,19 @@
 		CE11985C2BA2983200FD8B96 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CED2BF2E2BC95172000895EC /* libsqlite3.0.tbd */,
 				CE155B1E2BB9E0FF00E45A2A /* MapKit.framework */,
 				CE155B1C2BB9E0F800E45A2A /* CoreLocation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE49B8E72BC9E8700081936D /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				CE49B8E82BC9E88A0081936D /* song1.mp3 */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 		D610B6862BBF28CB007649B3 /* Delegates */ = {
@@ -197,6 +217,7 @@
 				D6569C8F2BBD34B8000B688F /* Match.swift */,
 				D6569C912BBD34C6000B688F /* Sport.swift */,
 				D6569C932BBD34D3000B688F /* Team.swift */,
+				CED2BF302BC9533B000895EC /* MyData.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -279,9 +300,11 @@
 				D6569C9A2BBD4BC1000B688F /* palBg.jpeg in Resources */,
 				D6569C982BBD41BA000B688F /* playBg.png in Resources */,
 				CE1198562BA290FB00FD8B96 /* GoogleService-Info.plist in Resources */,
+				CE49B8E92BC9E88A0081936D /* song1.mp3 in Resources */,
 				D6FF36812BC247E2008A9809 /* PlayPal3.png in Resources */,
 				CE11983B2BA2330000FD8B96 /* Assets.xcassets in Resources */,
 				CE1198392BA232FF00FD8B96 /* Main.storyboard in Resources */,
+				CE4B3FE82BC9D3F600D3D38B /* group.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +318,7 @@
 				D6569C942BBD34D3000B688F /* Team.swift in Sources */,
 				D6569C882BBD1B20000B688F /* WebScreen.swift in Sources */,
 				D6FF36772BC2083C008A9809 /* EventDispalyScreen.swift in Sources */,
+				CED2BF312BC9533B000895EC /* MyData.swift in Sources */,
 				D6569C922BBD34C6000B688F /* Sport.swift in Sources */,
 				D6569C8E2BBD34A7000B688F /* Booking.swift in Sources */,
 				D6569C7F2BBCF27B000B688F /* ViewController.swift in Sources */,

@@ -11,8 +11,31 @@ Description: This class manages the functionality related to setting and updatin
 
 import UIKit
 import FirebaseFirestore
+import AVFoundation
 
 class CollegeScreen: UIViewController {
+    
+    var soundPlayer : AVAudioPlayer?
+    @IBOutlet var volSlider : UISlider!
+    
+    @IBAction func viewDidChange(sender: UISlider){
+        soundPlayer?.volume = volSlider.value
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let soundURL = Bundle.main
+            .path(forResource: "song1", ofType: "mp3")
+        let url = URL(fileURLWithPath: soundURL!)
+        
+        
+        soundPlayer = try! AVAudioPlayer.init(contentsOf: url)
+        
+        soundPlayer?.currentTime = 30
+        soundPlayer?.volume = volSlider.value
+        soundPlayer?.numberOfLoops = -1
+        soundPlayer?.play()
+        
+    }
     
     // MARK: - Outlets
     @IBOutlet weak var addHomeCampusButton: UIButton!
