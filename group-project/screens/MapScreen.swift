@@ -6,6 +6,7 @@ Group Members:
 - Chahat Jain 991668960
 - Fizza Imran 991670304
 - Chakshita Gupta 991653663
+- Joshua Jocson 991657009
 Description: This class manages the functionality related to searching for and selecting the home campus location on the map.
 */
 
@@ -34,12 +35,16 @@ class MapScreen: UIViewController, UITextFieldDelegate, MKMapViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Map and Table delegates have been set
         myMapView.delegate = self
         tbLocEntered.delegate = self
         myTableView.dataSource = self
         myTableView.delegate = self
         
+        
         tbLocEntered.placeholder = "Search for your campus"
+        
+        //Defined and set Sheridan Davis as our home campus
         let homeCampusLatitude = 43.7315
         let homeCampusLongitude = -79.7624
         homeCampusLocation = CLLocation(latitude: homeCampusLatitude, longitude: homeCampusLongitude)

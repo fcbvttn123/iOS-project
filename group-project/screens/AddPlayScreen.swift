@@ -6,6 +6,7 @@
  - Chahat Jain 991668960
  - Fizza Imran 991670304
  - Chakshita Gupta 991653663
+ - Joshua Jocson 991657009
  Description: This class allows users to add a play event, including selecting a campus, entering event details, and adding the event to Firestore.
  */
 import UIKit

@@ -6,6 +6,7 @@ Group Members:
 - Chahat Jain 991668960
 - Fizza Imran 991670304
 - Chakshita Gupta 991653663
+- Joshua Jocson 991657009
 Description: This class manages user authentication using Firebase Authentication, including manual sign-in and sign-in with Google.
 */
 

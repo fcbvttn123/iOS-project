@@ -28,12 +28,15 @@ class CollegeScreen: UIViewController {
             .path(forResource: "song1", ofType: "mp3")
         let url = URL(fileURLWithPath: soundURL!)
         
-        
+        //sound player is initialized
         soundPlayer = try! AVAudioPlayer.init(contentsOf: url)
         
+        //sound volume is set to a slider to play infinitely
         soundPlayer?.currentTime = 30
         soundPlayer?.volume = volSlider.value
         soundPlayer?.numberOfLoops = -1
+        
+        //sound is now played
         soundPlayer?.play()
         
     }
@@ -46,7 +49,11 @@ class CollegeScreen: UIViewController {
         
         // Check if HomeCampus is not set
         checkHomeCampus()
+        
+        // Updates our home campus button title if home campus is set
         updateHomeCampusButtonTitle()
+        
+        //sports ball animation is called
         dropBalls()
     }
     
@@ -159,6 +166,7 @@ class CollegeScreen: UIViewController {
         }
     }
     
+    //Created by Joshua Jocson
     //This function allows for a "ball drop" and "bounce" animation of different sports balls, once the view has been loaded
     func dropBalls() {
         let ballTypes = ["soccerball", "tennisball", "volleyball", "basketball"]
@@ -167,7 +175,8 @@ class CollegeScreen: UIViewController {
             let ball = CALayer()
             ball.contents = UIImage(named: "\(ballType).png")?.cgImage
             ball.bounds = CGRect(x: 0, y: 0, width: 50, height: 50)
-            ball.position = CGPoint(x: CGFloat(50 + index * 100), y: view.bounds.height / 2 - 100) //initial position is set up top
+            //initial position is set up top
+            ball.position = CGPoint(x: CGFloat(50 + index * 100), y: view.bounds.height / 2 - 100)
             
             view.layer.addSublayer(ball)
             
@@ -175,10 +184,12 @@ class CollegeScreen: UIViewController {
             fallAnimation.timingFunction = CAMediaTimingFunction(name: .easeIn)
             fallAnimation.fromValue = -25
             fallAnimation.toValue = view.bounds.height - 25
-            fallAnimation.duration = Double.random(in: 1.5...2.0) // balls drop between a duration of 2.0 to 2.5
+            //balls drop between a duration of 1.5 to 2.0 seconds
+            fallAnimation.duration = Double.random(in: 1.5...2.0)
             fallAnimation.fillMode = .forwards
             fallAnimation.isRemovedOnCompletion = true
-            fallAnimation.beginTime = CACurrentMediaTime() + Double(index) * 0.25 //0.25 second delay for each ball
+            //0.25 second delay for each ball
+            fallAnimation.beginTime = CACurrentMediaTime() + Double(index) * 0.25
             
             ball.add(fallAnimation, forKey: "fallAnimation")
             
@@ -193,6 +204,11 @@ class CollegeScreen: UIViewController {
                 bounceAnimation.repeatCount = 5
                 
                 ball.add(bounceAnimation, forKey: "bounceAnimation")
+                
+            //balls are removed after having bounced a few times
+            DispatchQueue.main.asyncAfter(deadline: .now() + (bounceAnimation.duration * Double(bounceAnimation.repeatCount))) {
+                    ball.removeFromSuperlayer()
+                }
             }
         }
     }
