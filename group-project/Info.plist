@@ -34,32 +34,5 @@
 		</dict>
 	</dict>
     
-    
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb2677017452462361</string>
-            </array>
-        </dict>
-    </array>
-    
-    <key>FacebookAppID</key>
-    <string>2677017452462361</string>
-    <key>FacebookClientToken</key>
-    <string>a119067b6c545fd183ee382a92d6d885</string>
-    <key>FacebookDisplayName</key>
-    <string>iOS-group-project</string>
-    
-    
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-      <string>fbapi</string>
-      <string>fb-messenger-share-api</string>
-    </array>
-    
 </dict>
 </plist>

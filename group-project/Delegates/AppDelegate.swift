@@ -7,10 +7,6 @@ import FirebaseCore
 import GoogleSignIn
 import FirebaseAuth
 
-// Created by David
-// Facebook Signin
-import FacebookCore
-
 //Created by David
 // These Imports are used for Firebase - Firestore Database
 import FirebaseFirestore
@@ -51,16 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let documentPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDir = documentPaths[0]
         databasePath = documentsDir.appending("/" + databaseName!)
-        
-        // Facebook Sign-in
-        if ApplicationDelegate.shared.application(
-            app,
-            open: url,
-            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
-        ) {
-            return true
-        }
         
         // Google Sign-in
         if GIDSignIn.sharedInstance.handle(url) {
@@ -240,13 +226,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Created by David
         // This code is used to configure Google Firebase
         FirebaseApp.configure()
-        
-        // Created by David
-        // Facebook Sign-in
-        ApplicationDelegate.shared.application(
-            application,
-            didFinishLaunchingWithOptions: launchOptions
-        )
         
         return true
     }

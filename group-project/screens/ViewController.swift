@@ -20,11 +20,7 @@ import FacebookLogin
 import AVFoundation
 
 class ViewController: UIViewController, UITextFieldDelegate, LoginButtonDelegate {
-    
-    
-    
 
-    
     func loginButton(_ loginButton: FBLoginButton!, didCompleteWith result: LoginManagerLoginResult!, error: Error!) {
       if let error = error {
         print(error.localizedDescription)
@@ -53,7 +49,7 @@ class ViewController: UIViewController, UITextFieldDelegate, LoginButtonDelegate
         loginButton.permissions = ["public_profile", "email"]
         loginButton.center = view.center
         loginButton.delegate = self
-        view.addSubview(loginButton)
+        //view.addSubview(loginButton)
     }
     
     // MARK: - Actions
