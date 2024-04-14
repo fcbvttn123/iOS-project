@@ -14,7 +14,7 @@ import UIKit
 import EventKitUI
 import EventKit
 
-class LastTechViewController: UIViewController, EKEventViewDelegate, EKEventEditViewDelegate {
+class EventKitController: UIViewController, EKEventViewDelegate, EKEventEditViewDelegate {
     
     func eventViewController(_ controller: EKEventViewController, didCompleteWith action: EKEventViewAction) {
         

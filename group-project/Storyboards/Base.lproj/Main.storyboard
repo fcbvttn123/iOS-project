@@ -1136,11 +1136,11 @@
             </objects>
             <point key="canvasLocation" x="336.64122137404581" y="693.66197183098598"/>
         </scene>
-        <!--Last Tech View Controller-->
+        <!--Event Kit Controller-->
         <scene sceneID="12T-at-Zfa">
             <objects>
-                <viewController id="Exa-lA-oVr" customClass="LastTechViewController" customModule="group_project" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Eio-Vz-KgX">
+                <viewController id="Exa-lA-oVr" customClass="EventKitController" customModule="group_project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Eio-Vz-KgX" customClass="eventkit">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="oSc-jp-aIa"/>

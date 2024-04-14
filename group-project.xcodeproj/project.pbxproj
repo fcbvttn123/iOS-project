@@ -31,7 +31,7 @@
 		CED2BF2F2BC9517D000895EC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CED2BF2E2BC95172000895EC /* libsqlite3.0.tbd */; };
 		CED2BF312BC9533B000895EC /* MyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2BF302BC9533B000895EC /* MyData.swift */; };
 		CED5F8F22BA5CB8500A3D627 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CED5F8F12BA5CB8500A3D627 /* FirebaseFirestore */; };
-		CEE0C1B02BCC36F2007829D8 /* LastTechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE0C1AF2BCC36F2007829D8 /* LastTechViewController.swift */; };
+		CEE0C1B02BCC36F2007829D8 /* EventKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE0C1AF2BCC36F2007829D8 /* EventKitController.swift */; };
 		D610B68F2BBF82EF007649B3 /* MapScreenCampus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D610B68E2BBF82EF007649B3 /* MapScreenCampus.swift */; };
 		D62B36B92BBDF6D20042D656 /* AddPlayScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62B36B82BBDF6D20042D656 /* AddPlayScreen.swift */; };
 		D62B36BD2BBDF8930042D656 /* PickPlayScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62B36BC2BBDF8930042D656 /* PickPlayScreen.swift */; };
@@ -75,7 +75,7 @@
 		CE4B3FE72BC9D3F600D3D38B /* group.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = group.db; sourceTree = "<group>"; };
 		CED2BF2E2BC95172000895EC /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		CED2BF302BC9533B000895EC /* MyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyData.swift; sourceTree = "<group>"; };
-		CEE0C1AF2BCC36F2007829D8 /* LastTechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTechViewController.swift; sourceTree = "<group>"; };
+		CEE0C1AF2BCC36F2007829D8 /* EventKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitController.swift; sourceTree = "<group>"; };
 		D610B68E2BBF82EF007649B3 /* MapScreenCampus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenCampus.swift; sourceTree = "<group>"; };
 		D62B36B82BBDF6D20042D656 /* AddPlayScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayScreen.swift; sourceTree = "<group>"; };
 		D62B36BC2BBDF8930042D656 /* PickPlayScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPlayScreen.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 				D6FF36782BC20CC3008A9809 /* BookingConfirmationScreen.swift */,
 				D6FF367A2BC215F2008A9809 /* ViewBookingsScreen.swift */,
 				D6569C872BBD1B20000B688F /* WebScreen.swift */,
-				CEE0C1AF2BCC36F2007829D8 /* LastTechViewController.swift */,
+				CEE0C1AF2BCC36F2007829D8 /* EventKitController.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -348,7 +348,7 @@
 				D6569C812BBCF301000B688F /* CollegeScreen.swift in Sources */,
 				D62B36BD2BBDF8930042D656 /* PickPlayScreen.swift in Sources */,
 				CE1198322BA232FF00FD8B96 /* AppDelegate.swift in Sources */,
-				CEE0C1B02BCC36F2007829D8 /* LastTechViewController.swift in Sources */,
+				CEE0C1B02BCC36F2007829D8 /* EventKitController.swift in Sources */,
 				D6569C8C2BBD3498000B688F /* User.swift in Sources */,
 				CE1198342BA232FF00FD8B96 /* SceneDelegate.swift in Sources */,
 				D610B68F2BBF82EF007649B3 /* MapScreenCampus.swift in Sources */,
