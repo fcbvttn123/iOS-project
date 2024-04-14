@@ -32,19 +32,12 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
             
         let returnCode : Bool = AppDelegate.shared.insertIntoDatabase(person: person)
         
-        var returnMSG : String = "Person Added"
         
         if returnCode == false
         {
-            returnMSG = "Person Add Failed"
+             print("Add new user failed")
         }
         
-        let alertController = UIAlertController(title: "SQLite Add", message: returnMSG, preferredStyle: .alert)
-        
-        let cancelAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-        
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true)
     }
     
 
