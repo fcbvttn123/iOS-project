@@ -6,6 +6,7 @@ Group Members:
 - Chahat Jain 991668960
 - Fizza Imran 991670304
 - Chakshita Gupta 991653663
+- Joshua Jocson 991657009
 Description: This class manages the functionality related to setting and updating the user's home campus.
 */
 
@@ -46,6 +47,7 @@ class CollegeScreen: UIViewController {
         // Check if HomeCampus is not set
         checkHomeCampus()
         updateHomeCampusButtonTitle()
+        dropBalls()
     }
     
     // This function is used to make the keyboard disappear when we tap the "return" key
@@ -156,6 +158,45 @@ class CollegeScreen: UIViewController {
             }
         }
     }
+    
+    //This function allows for a "ball drop" and "bounce" animation of different sports balls, once the view has been loaded
+    func dropBalls() {
+        let ballTypes = ["soccerball", "tennisball", "volleyball", "basketball"]
+        
+        for (index, ballType) in ballTypes.enumerated() {
+            let ball = CALayer()
+            ball.contents = UIImage(named: "\(ballType).png")?.cgImage
+            ball.bounds = CGRect(x: 0, y: 0, width: 50, height: 50)
+            ball.position = CGPoint(x: CGFloat(50 + index * 100), y: view.bounds.height / 2 - 100) //initial position is set up top
+            
+            view.layer.addSublayer(ball)
+            
+            let fallAnimation = CABasicAnimation(keyPath: "position.y")
+            fallAnimation.timingFunction = CAMediaTimingFunction(name: .easeIn)
+            fallAnimation.fromValue = -25
+            fallAnimation.toValue = view.bounds.height - 25
+            fallAnimation.duration = Double.random(in: 1.5...2.0) // balls drop between a duration of 2.0 to 2.5
+            fallAnimation.fillMode = .forwards
+            fallAnimation.isRemovedOnCompletion = true
+            fallAnimation.beginTime = CACurrentMediaTime() + Double(index) * 0.25 //0.25 second delay for each ball
+            
+            ball.add(fallAnimation, forKey: "fallAnimation")
+            
+            //bounce animation as soon as the fall animation completesa
+            DispatchQueue.main.asyncAfter(deadline: .now() + fallAnimation.duration) {
+                let bounceAnimation = CABasicAnimation(keyPath: "position.y")
+                bounceAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+                bounceAnimation.fromValue = self.view.bounds.height - 25
+                bounceAnimation.toValue = self.view.bounds.height - 100
+                bounceAnimation.duration = 0.5
+                bounceAnimation.autoreverses = true
+                bounceAnimation.repeatCount = 5
+                
+                ball.add(bounceAnimation, forKey: "bounceAnimation")
+            }
+        }
+    }
+    
     
     // MARK: - Button Actions
     
