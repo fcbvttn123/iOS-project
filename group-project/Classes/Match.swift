@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Class representing a match event betwen player and place
 class Match {
     var matchID: Int
     var dateTime: String
@@ -15,6 +16,8 @@ class Match {
     var instituelocation: String
     var address : String
     var createdBy : Int
+    
+    // Initialize a new Booking instance with provided information
     init(matchID: Int, dateTime: String, instituelocation: String, contact: Int, playerCount : Int, address : String, createdBy :Int) {
         self.matchID = matchID
         self.dateTime = dateTime

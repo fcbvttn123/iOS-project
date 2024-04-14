@@ -6,6 +6,7 @@ Group Members:
 - Chahat Jain 991668960
 - Fizza Imran 991670304
 - Chakshita Gupta 991653663
+- Joshua Jocson 991657009
 Description: This class manages the functionality related to searching for and selecting additional campuses on the map.
 */
 

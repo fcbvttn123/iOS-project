@@ -6,6 +6,7 @@ Group Members:
 - Chahat Jain 991668960
 - Fizza Imran 991670304
 - Chakshita Gupta 991653663
+- Joshua Jocson 991657009
 Description: This class handles the sign-up process for users, including hashing passwords and storing user information in a Firestore database.
 */
 
@@ -15,6 +16,7 @@ import CryptoKit
 // These Imports are used for Firebase - Firestore Database
 import FirebaseFirestore
 
+// Class responsible for handling user sign-up process
 class SignUpScreen: UIViewController, UITextFieldDelegate {
     
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -22,6 +24,7 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
     @IBOutlet var tbName : UITextField!
     @IBOutlet var tbPass : UITextField!
     
+    // Method to add user to the database
     @IBAction func addPerson(sender : Any)
     {
         let person : MyData = MyData.init()
@@ -29,19 +32,12 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
             
         let returnCode : Bool = AppDelegate.shared.insertIntoDatabase(person: person)
         
-        var returnMSG : String = "Person Added"
         
         if returnCode == false
         {
-            returnMSG = "Person Add Failed"
+             print("Add new user failed")
         }
         
-        let alertController = UIAlertController(title: "SQLite Add", message: returnMSG, preferredStyle: .alert)
-        
-        let cancelAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-        
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true)
     }
     
 

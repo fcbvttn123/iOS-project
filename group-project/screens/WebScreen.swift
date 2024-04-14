@@ -6,6 +6,7 @@ Group Members:
 - Chahat Jain 991668960
 - Fizza Imran 991670304
 - Chakshita Gupta 991653663
+- Joshua Jocson 991657009
 Description: A screen to dispaly selected URL
 */
 
@@ -14,7 +15,9 @@ import WebKit
 
 class WebScreen: UIViewController, WKNavigationDelegate {
     
+    // Web view for displaying the URL
     @IBOutlet var webView  : WKWebView!
+    // Activity indicator for loading state
     @IBOutlet var activity: UIActivityIndicatorView!
     
     // get URL from privious view

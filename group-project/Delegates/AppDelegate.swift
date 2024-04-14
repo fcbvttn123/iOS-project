@@ -62,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     
-    
+    // Function to check if the database exists, if not, create it
     func checkAndCreateDatabase()
     {
         var success = false
@@ -83,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return;
     }
     
-    
+    // Function to read data from the SQLite database
     func readDataFromDatabase()
     {
     people.removeAll()
@@ -130,6 +130,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     }
     
+    // Function to insert data into the SQLite database
     func insertIntoDatabase(person : MyData) -> Bool
     {
         var db: OpaquePointer? = nil
@@ -172,6 +173,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return returnCode
     }
     
+    // Function to setup Google Sign-in
     func setupGoogleSignIn() {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         let config = GIDConfiguration(clientID: clientID)

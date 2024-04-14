@@ -6,6 +6,7 @@ Group Members:
 - Chahat Jain 991668960
 - Fizza Imran 991670304
 - Chakshita Gupta 991653663
+ - Joshua Jocson 991657009
 Description: This view controller displays a screen for picking and displaying events for different campuses.
 */
 

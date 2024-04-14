@@ -6,6 +6,7 @@ Group Members:
 - Chahat Jain 991668960
 - Fizza Imran 991670304
 - Chakshita Gupta 991653663
+ - Joshua Jocson 991657009
 Description: Class for handling booking confirmation and sending confirmation emails.
 */
 
@@ -16,13 +17,16 @@ import FirebaseFirestore
 class BookingConfirmationScreen: UIViewController, MFMailComposeViewControllerDelegate {
     
     // MARK: - Outlets
+    //text field for entering recipient's email
     @IBOutlet var emailTextField: UITextField!
+    //button for viewing bookings
     @IBOutlet var viewBookingsButton: UIButton!
 
     // MARK: - Variables
     
     // Booking Id recieved from privious view
     var bookingId: String?
+    // Dictionary to store booking details
     var bookingDetails: [String: Any] = [:]
 
     
@@ -30,6 +34,7 @@ class BookingConfirmationScreen: UIViewController, MFMailComposeViewControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Fetch booking details if booking ID is available
         if let bookingId = bookingId {
             fetchBookingDetails(for: bookingId)
         }
