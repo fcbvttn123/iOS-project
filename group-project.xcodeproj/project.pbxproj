@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30E8532E2BCBBE5F0023B0C3 /* basketball.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E8532D2BCBBE5F0023B0C3 /* basketball.png */; };
+		30E853302BCBBE660023B0C3 /* soccerball.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E8532F2BCBBE660023B0C3 /* soccerball.png */; };
+		30E853322BCBBE6E0023B0C3 /* volleyball.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E853312BCBBE6E0023B0C3 /* volleyball.png */; };
+		30E853342BCBBE770023B0C3 /* tennisball.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E853332BCBBE770023B0C3 /* tennisball.png */; };
 		CE0D42E32BB4EF3D00900E9F /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0D42E22BB4EF3D00900E9F /* SignUpScreen.swift */; };
 		CE1198322BA232FF00FD8B96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1198312BA232FF00FD8B96 /* AppDelegate.swift */; };
 		CE1198342BA232FF00FD8B96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1198332BA232FF00FD8B96 /* SceneDelegate.swift */; };
@@ -50,6 +54,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30E8532D2BCBBE5F0023B0C3 /* basketball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basketball.png; sourceTree = "<group>"; };
+		30E8532F2BCBBE660023B0C3 /* soccerball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soccerball.png; sourceTree = "<group>"; };
+		30E853312BCBBE6E0023B0C3 /* volleyball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volleyball.png; sourceTree = "<group>"; };
+		30E853332BCBBE770023B0C3 /* tennisball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tennisball.png; sourceTree = "<group>"; };
 		CE0D42E22BB4EF3D00900E9F /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
 		CE11982E2BA232FF00FD8B96 /* group-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "group-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1198312BA232FF00FD8B96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -205,6 +213,10 @@
 				D6569C852BBD1670000B688F /* collegeBg.png */,
 				D6FF367E2BC24788008A9809 /* PlayPalLogo.jpeg */,
 				D6FF36802BC247E2008A9809 /* PlayPal3.png */,
+				30E8532D2BCBBE5F0023B0C3 /* basketball.png */,
+				30E8532F2BCBBE660023B0C3 /* soccerball.png */,
+				30E853312BCBBE6E0023B0C3 /* volleyball.png */,
+				30E853332BCBBE770023B0C3 /* tennisball.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -296,13 +308,17 @@
 				CE11983E2BA2330000FD8B96 /* LaunchScreen.storyboard in Resources */,
 				D6569C862BBD1670000B688F /* collegeBg.png in Resources */,
 				D6569C9E2BBD4E3F000B688F /* PalPicBg.png in Resources */,
+				30E853322BCBBE6E0023B0C3 /* volleyball.png in Resources */,
 				D6FF367F2BC24788008A9809 /* PlayPalLogo.jpeg in Resources */,
+				30E8532E2BCBBE5F0023B0C3 /* basketball.png in Resources */,
+				30E853302BCBBE660023B0C3 /* soccerball.png in Resources */,
 				D6569C9A2BBD4BC1000B688F /* palBg.jpeg in Resources */,
 				D6569C982BBD41BA000B688F /* playBg.png in Resources */,
 				CE1198562BA290FB00FD8B96 /* GoogleService-Info.plist in Resources */,
 				CE49B8E92BC9E88A0081936D /* song1.mp3 in Resources */,
 				D6FF36812BC247E2008A9809 /* PlayPal3.png in Resources */,
 				CE11983B2BA2330000FD8B96 /* Assets.xcassets in Resources */,
+				30E853342BCBBE770023B0C3 /* tennisball.png in Resources */,
 				CE1198392BA232FF00FD8B96 /* Main.storyboard in Resources */,
 				CE4B3FE82BC9D3F600D3D38B /* group.db in Resources */,
 			);
